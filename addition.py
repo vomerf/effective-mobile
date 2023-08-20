@@ -1,5 +1,6 @@
 import re
 from constants import BASE
+import uuid
 
 
 def add_records():
@@ -28,6 +29,7 @@ def correct_name(title, text):
 
 
 def create_new_record():
+    record_id = str(uuid.uuid4())[:8]
     last_name = input('Введите фамилию: ')
     correct_name(
         last_name,
@@ -51,6 +53,7 @@ def create_new_record():
     personal_phone = input('Введите личный телефон: ')
 
     return (
+        f'{record_id} '
         f'{last_name} {name} '
         f'{middle_name} {name_organization} '
         f'{work_phone} {personal_phone}'

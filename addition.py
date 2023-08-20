@@ -42,7 +42,7 @@ def create_new_record():
     )
     middle_name = input('Введите отчество: ')
     correct_name(
-        name,
+        middle_name,
         'Введите корректно отчество'
         '(Должно начинаться с большой буквы и на кириллице): '
     )
@@ -51,11 +51,12 @@ def create_new_record():
     personal_phone = input('Введите личный телефон: ')
 
     return (
-        f'{last_name} {name}'
-        f'{middle_name} {name_organization}'
+        f'{last_name} {name} '
+        f'{middle_name} {name_organization} '
         f'{work_phone} {personal_phone}'
     )
 
+add_records()
 
 # def add_records():
 #     try:

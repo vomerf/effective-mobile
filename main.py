@@ -1,9 +1,10 @@
 from read import read_records
 from confings import configure_argument
-
+from addition import add_records
 
 MODE_TO_FUNCTION = {
     'read_phone_book': read_records,
+    'add_in_phone_book': add_records,
 }
 
 

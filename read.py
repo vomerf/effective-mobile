@@ -4,7 +4,7 @@ from constants import BASE
 def read_records():
     try:
         with open(
-            BASE / 'Телефонный справочник.txt', 'r', encoding='utf-8'
+            BASE / 'phonebook.txt', 'r', encoding='utf-8'
         ) as f:
             page_size = 5
             page_num = 1
@@ -21,4 +21,4 @@ def read_records():
                 page_num += 1
 
     except FileNotFoundError:
-        open('Телефонный справочник.txt', 'w').close()
+        open('phonebook.txt', 'w').close()

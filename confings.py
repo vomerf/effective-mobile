@@ -2,7 +2,7 @@ import argparse
 
 
 def configure_argument(available_modes):
-    parser = argparse.ArgumentParser(description='Телефонный справочник')
+    parser = argparse.ArgumentParser(description='phonebook')
     parser.add_argument(
         'mode',
         choices=available_modes,
@@ -14,5 +14,12 @@ def configure_argument(available_modes):
         '--read_records',
         action='store_true',
         help='Чтение всех страниц телефонной книги'
+    )
+
+    parser.add_argument(
+        '-a',
+        '--add-record',
+        action='store_true',
+        help='Добавление записи в телефонную книгу'
     )
     return parser

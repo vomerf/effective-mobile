@@ -1,7 +1,16 @@
 from constants import BASE
 
 
-def edit_record(record_id):
+def edit_records(record_id):
+    '''
+    Для редоктирования записи нужно указать его уникальный
+    идентификатор record_id этот параметр нужно передавать
+    при запуске кода --record_id
+    например `py main.py edit_in_phone_book --record_id 123`.
+    Будет редактироваться запись под индексом 123.
+    Если такого индекса не существует он вам скажет,
+    что такой записи не существует.
+    '''
     with open(BASE / 'phonebook.txt', 'r', encoding='utf-8') as f:
         lines = f.readlines()
     for index, line in enumerate(lines):

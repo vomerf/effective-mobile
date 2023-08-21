@@ -1,6 +1,7 @@
 import re
-from constants import BASE
 import uuid
+
+from constants import BASE
 
 
 def add_records():
@@ -20,12 +21,6 @@ def correct_name(title, text):
     while not re.match(r'^[А-Я][а-я]*$', title):
         title = input(text)
     return title
-
-### Доделать регулярное выражение для мобильного телефона ###
-# def correct_mobile_phone(title, text):
-#     while not re.match(r'^(?:\+7|8)\d{10}$', title):
-#         phone = input(text)
-#     return phone
 
 
 def create_new_record():

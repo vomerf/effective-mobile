@@ -1,11 +1,5 @@
-from read import read_records
 from confings import configure_argument
-from addition import add_records
-
-MODE_TO_FUNCTION = {
-    'read_phone_book': read_records,
-    'add_in_phone_book': add_records,
-}
+from constants import MODE_TO_FUNCTION
 
 
 def main():
@@ -13,8 +7,13 @@ def main():
     args = arg_phone_book.parse_args()
 
     phone_mode = args.mode
-    MODE_TO_FUNCTION[phone_mode]()
-
+    if phone_mode == 'edit_in_phone_book':
+        MODE_TO_FUNCTION[phone_mode](args.record_id)
+    elif phone_mode == 'search_in_phone_book':
+        MODE_TO_FUNCTION[phone_mode](args)
+    else:
+        MODE_TO_FUNCTION[phone_mode]()
+    
 
 if __name__ == '__main__':
     main()

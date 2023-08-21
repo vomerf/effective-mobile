@@ -1,18 +1,22 @@
 from constants import BASE
 
 
-def read_records():
+def read_records() -> None:
+    '''Читает постранично записи,
+    если файла не существует он создает пустой файл
+    с названием по умолчанию phonebook.txt
+    '''
     try:
         with open(
             BASE / 'phonebook.txt', 'r', encoding='utf-8'
         ) as f:
-            page_size = 5
-            page_num = 1
-            lines = f.readlines()
+            page_size: int = 5
+            page_num: int = 1
+            lines: list = f.readlines()
             while True:
-                start = (page_num - 1) * page_size
-                end = start + page_size
-                page_lines = lines[start:end]
+                start: int = (page_num - 1) * page_size
+                end: int = start + page_size
+                page_lines: list = lines[start:end]
                 if not page_lines:
                     break
                 print('Страница', page_num)

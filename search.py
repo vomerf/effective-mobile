@@ -1,7 +1,10 @@
+from typing import Generator
 from constants import BASE
 
 
-def search_phonebook(filename='phonebook.txt', *args):
+def search_phonebook(
+    filename='phonebook.txt', *args
+) -> Generator[list[str], None, None]:
     '''Поиск производится по всем полям:
     - lastname
     - name

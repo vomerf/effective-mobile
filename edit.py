@@ -1,7 +1,7 @@
 from constants import BASE
 
 
-def edit_records(record_id):
+def edit_records(record_id: str):
     '''
     Для редоктирования записи нужно указать его уникальный
     идентификатор record_id этот параметр нужно передавать
@@ -12,48 +12,48 @@ def edit_records(record_id):
     что такой записи не существует.
     '''
     with open(BASE / 'phonebook.txt', 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+        lines: list = f.readlines()
     for index, line in enumerate(lines):
         if line.startswith(record_id):
-            fields = line.split()[1:]
-            last_name = fields[0]
-            name = fields[1]
-            middle_name = fields[2]
-            name_organization = fields[3]
-            work_phone = fields[4]
-            personal_phone = fields[5]
-            new_last_name = input(
+            fields: list = line.split()[1:]
+            last_name: str = fields[0]
+            name: str = fields[1]
+            middle_name: str = fields[2]
+            name_organization: str = fields[3]
+            work_phone: str = fields[4]
+            personal_phone: str = fields[5]
+            new_last_name: str = input(
                 f'Текущая фамилия: {last_name}.'
                 f'Введите новую фамилию или нажмите Enter,'
                 f'чтобы оставить текущее значение: '
             )
-            new_name = input(
+            new_name: str = input(
                 f'Текущее имя: {name}.'
                 f'Введите новое имя или нажмите Enter,'
                 f'чтобы оставить текущее значение: '
             )
-            new_middle_name = input(
+            new_middle_name: str = input(
                 f'Текущее отчество: {middle_name}.'
                 f'Введите новое отчество или нажмите Enter,'
                 f'чтобы оставить текущее значение: '
             )
-            new_name_organization = input(
+            new_name_organization: str = input(
                 f'Текущая организация: {name_organization}.'
                 f'Введите новую организацию или нажмите Enter,'
                 f'чтобы оставить текущее значение: '
             )
-            new_work_phone = input(
+            new_work_phone: str = input(
                 f'Текущий рабочий телефон: {work_phone}.'
                 f'Введите новый рабочий телефон или нажмите Enter,'
                 f'чтобы оставить текущее значение: '
             )
-            new_personal_phone = input(
+            new_personal_phone: str = input(
                 f'Текущий личный телефон: {personal_phone}.'
                 f'Введите новый личный телефон или нажмите Enter,'
                 f'чтобы оставить текущее значение: '
             )
 
-            new_line = (
+            new_line: str = (
                 f'{record_id} {new_last_name if new_last_name else last_name} '
                 f'{new_name if new_name else name} '
                 f'{new_middle_name if new_middle_name else middle_name} '

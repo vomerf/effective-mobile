@@ -4,7 +4,8 @@ import uuid
 from constants import BASE
 
 
-def add_records():
+def add_records() -> None:
+    '''Добавляет запись в отсортированном порядке'''
     try:
         with open(BASE / 'phonebook.txt', 'r', encoding='utf-8') as f:
             records = [line.strip() for line in f.readlines()]
@@ -17,13 +18,13 @@ def add_records():
             pass
 
 
-def correct_name(title, text):
+def correct_name(title: str, text: str) -> str:
     while not re.match(r'^[А-Я][а-я]*$', title):
-        title = input(text)
+        title: str = input(text)
     return title
 
 
-def create_new_record():
+def create_new_record() -> str:
     record_id = str(uuid.uuid4())[:8]
     last_name = input('Введите фамилию: ')
     correct_name(
